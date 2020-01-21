@@ -1,0 +1,13 @@
+{% extends 'myapp/_layout.html' %}
+{% block content %}
+    <code>
+        {{ data_json }}
+    </code>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" class="btn-default" onclick="window.location.href='{% url 'data_list' %}';">List</button>
+        <button type="submit" class="btn-submit">Submit</button>
+        <button type="button" class="btn-cancel" onclick="javascript:history.back();">Cancel</button>
+        <button type="button" class="btn-delete">Delete</button>
+    </form>
+{% endblock %}

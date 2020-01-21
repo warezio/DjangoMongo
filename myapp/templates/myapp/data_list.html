@@ -1,0 +1,15 @@
+{% extends 'myapp/_layout.html' %}
+{% block content %}
+    {% for data in datas %}
+    <div>
+        <span>Id: {{ data.id }}</span>
+        <span>field: {{ data.field }}</span>
+        <span>type: {{ data.type }}</span>
+        <span>default: {{ data.default }}</span>
+        <span>value: {{ data.value }}</span>
+        <span><a href="{% url 'data_change' pk=data.pk %}" title="Edit">Edit</a></span>
+    </div>
+    {% endfor %}
+
+    <button type="button" class="btn-default" onclick="window.location.href='{% url 'data_add' %}';">Add</button>
+{% endblock %}
